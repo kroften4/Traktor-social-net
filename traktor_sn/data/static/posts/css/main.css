@@ -1,0 +1,24 @@
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 10px;
+    text-align: center;
+    width: 70%;
+}
+
+main .features h1 {font-size: 50px;}
+main .features p {max-width: 400px; margin; 20px auto}
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+
+form{
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}

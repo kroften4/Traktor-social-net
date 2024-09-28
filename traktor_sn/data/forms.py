@@ -24,4 +24,5 @@ class ArticlesForm(ModelForm):
                 'class': 'form-control',
                 'placeholder': 'text'
             }),
+
         }

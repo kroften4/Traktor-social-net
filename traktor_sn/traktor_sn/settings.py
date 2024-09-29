@@ -31,10 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< Updated upstream
-=======
     'users.apps.UsersConfig',
->>>>>>> Stashed changes
     'posts.apps.PostsConfig',
     'crispy_forms',
     'crispy_bootstrap4',

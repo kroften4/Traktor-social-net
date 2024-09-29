@@ -10,12 +10,14 @@ from .models import Post
 class PostListView(ListView):
     model = Post
     ordering = ['-date_posted']
+    extra_context = {'title': 'Home'}
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content']
     success_url = reverse_lazy('posts-home')
+    extra_context = {'title': 'New post'}
 
     def form_valid(self, form):
         form.instance.author = self.request.user

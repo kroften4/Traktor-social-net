@@ -15,18 +15,18 @@
     {% endblock stylesheet %}
 
     {% if title %}
-        <title>{{ title }} - TraktorSN</title>
+        <title>{{ title }} | TraktorSN</title>
     {% else %}
         <title>TraktorSN</title>
     {% endif %}
 </head>
 <body>
-    <div class="header">
+    <header>
         <a href="{% url 'posts-home' %}">Home</a>
         <a href="#">About</a>
         <a href="#">Feedback</a>
         {% if user.is_authenticated %}
-            <form action="{% url 'logout' %}" method="POST">
+            <form id="logout-form" action="{% url 'logout' %}" method="POST">
                 {% csrf_token %}
                 <button id="logout-btn" type="submit">Log out</button>
             </form>
@@ -34,16 +34,18 @@
             <a href="{% url 'login' %}">Log in</a>
             <a href="{% url 'register' %}">Sign up</a>
         {% endif %}
-    </div>
-    {% if messages %}
-        {% for msg in messages %}
-            <div class="msg msg-{{ msg.tags }}">
-                    {{ msg }}
-            </div>
-        {% endfor %}
-    {% endif %}
+    </header>
+    <div id="main-container">
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="msg msg-{{ msg.tags }}">
+                        {{ msg }}
+                </div>
+            {% endfor %}
+        {% endif %}
 
-    {% block base_body %}
-    {% endblock base_body %}
+        {% block base_body %}
+        {% endblock base_body %}
+    </div>
 </body>
 </html>

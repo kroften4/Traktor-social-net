@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block stylesheet %}
-<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+<link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
 {% endblock stylesheet %}
 
 {% block base_body %}
-<div id="register-form">
+<div class="form-container">
     <form method="POST">
         {% csrf_token %}
         <fieldset>

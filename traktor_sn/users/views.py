@@ -15,4 +15,4 @@ def register(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, 'users/register.html', {'form': form, 'title': 'Sign up to TraktorSN'})
+    return render(request, 'users/register.html', {'form': form, 'title': 'Sign up'})

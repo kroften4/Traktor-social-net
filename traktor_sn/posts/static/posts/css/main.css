@@ -1,3 +1,4 @@
+/* ~~ Make the Log out button in header look like a link ~~ */
 #logout-btn {
   background: none!important;
   border: none;
@@ -15,10 +16,12 @@
     text-decoration: underline;
 }
 
-.header > form {
+#logout-form {
     display: inline;
 }
+/* ~~~~ */
 
+/* ~~ Django flash messages ~~*/
 .msg {
     border-radius: 5px;
     padding: 20px;
@@ -28,17 +31,20 @@
 .msg-success {
     background-color: lightgreen;
 }
+/* ~~~~ */
 
-.post {
-    margin-block: 8px;
+#main-container {
     padding: 8px;
-    background: orange;
 }
 
-.post-content {
-    background-color: white;
-    border-radius: 5px;
-    padding: 8px;
-    margin: 5px;
-    overflow-wrap: break-word;
+header {
+    padding-block: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 3px solid;
+}
+
+header > * {
+    font-size: 17px;
+    padding-inline: 2px;
 }

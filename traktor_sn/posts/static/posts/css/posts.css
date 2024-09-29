@@ -1,0 +1,24 @@
+/* ~~ Posts - home page ~~ */
+#posts-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post {
+    max-width: 600px;
+    width:100%;
+    margin-block: 8px;
+    padding: 8px;
+    background: orange;
+    border-radius: 5px;
+}
+
+.post-content {
+    background-color: white;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 5px;
+    overflow-wrap: break-word;
+}
+/* ~~~~ */

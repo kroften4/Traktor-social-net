@@ -1,0 +1,21 @@
+{% extends 'posts/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div id="register-form">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Log in</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <button type="submit">Log in</button>
+    </form>
+    <small>Don't have an account? <a href="{% url 'register' %}">Sign up</a></small>
+</div>
+{% endblock base_body %}

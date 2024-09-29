@@ -1,0 +1,13 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div id="register-form">
+    <h2>You have successfully logged out</h2>
+    <a href="{% url 'login' %}">Log in again</a>
+</div>
+{% endblock base_body %}

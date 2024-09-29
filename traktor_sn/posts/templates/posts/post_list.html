@@ -1,0 +1,39 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div>
+    <div class="top-bar">
+        <h1>TraktorSN</h1>
+        <p>Discover posts from our community</p>
+    </div>
+    <div>
+        <a href="{% url 'post-create' %}">
+            <button class="btn btn-info">
+                <i class="fas fa-plus-circle"></i>Create post
+            </button>
+        </a>
+    </div>
+    {% if object_list %}
+            <div id="posts-list">
+            {% for post in object_list %}
+                <div class="post">
+                    <h3>{{ post.title }}</h3>
+                    <span>
+                        By <strong>{{ post.author }}</strong> on <strong>{{ post.date_posted|date:"H:i | N d, Y" }}</strong>
+                    </span>
+                    <p class="post-content">
+                        {{ post.content }}
+                    </p>
+                </div>
+            {% endfor %}
+            </div>
+    {% else %}
+        <p>There are no posts yet. Be the first to make one!</p>
+    {% endif %}
+</div>
+{% endblock base_body %}

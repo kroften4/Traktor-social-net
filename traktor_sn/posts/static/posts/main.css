@@ -1,0 +1,47 @@
+<<<<<<< Updated upstream
+=======
+#logout-btn {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: inherit;
+  font-size: inherit;
+  color: #007bff;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+}
+
+#logout-btn:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.header > form {
+    display: inline;
+}
+
+.msg {
+    border-radius: 5px;
+    padding: 20px;
+    width: fit-content;
+}
+
+.msg-success {
+    background-color: lightgreen;
+}
+
+.post {
+    margin-block: 8px;
+    padding: 8px;
+    background: orange;
+}
+
+.post-content {
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+    overflow-wrap: break-word;
+}
+>>>>>>> Stashed changes

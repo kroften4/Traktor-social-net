@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Create a new post</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <button type="submit">Post</button>
+    </form>
+</div>
+{% endblock base_body %}

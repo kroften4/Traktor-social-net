@@ -1,0 +1,18 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+    <form class="add_your_class" method="GET" action="" >
+        <input class="add_your_class" type="search" name="search">
+        <button class="add_your_class" type="submit"> Search </button>
+    </form>
+    {% for res in all_search_results %}
+        <div>
+            {{ res }}
+        </div>
+    {% endfor %}
+{% endblock base_body %}
+

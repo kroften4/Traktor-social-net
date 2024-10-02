@@ -1,0 +1,13 @@
+.username {
+    padding: 3px 10px;
+    margin: 5px;
+    background-color: lightblue;
+    border-radius: 2px;
+    width: fit-content;
+}
+
+#searchbar {
+    max-width: 300px;
+    display: flex;
+    margin-bottom: 10px;
+}

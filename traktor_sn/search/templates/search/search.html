@@ -1,0 +1,19 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'search/search.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+    <form id="searchbar" method="GET" action="" >
+        <input class="form-control" placeholder="Username..." type="search" name="search">
+        <button class="btn btn-info ml-2" type="submit"> Search </button>
+    </form>
+    {% for res in all_search_results %}
+        <div class="username">
+            {{ res.username }}
+        </div>
+    {% endfor %}
+{% endblock base_body %}
+

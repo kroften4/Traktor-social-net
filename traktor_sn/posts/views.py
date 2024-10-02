@@ -29,6 +29,7 @@ def get_image(request):
     """
     Includes path traversal vulnerability
     """
+    # does not handle the case when imgname is not provided in request query
     imgname = request.GET.get('imgname')
 
     # unsanitazed user input

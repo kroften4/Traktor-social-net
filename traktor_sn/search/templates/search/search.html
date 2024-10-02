@@ -2,16 +2,17 @@
 {% load static %}
 {% block stylesheet %}
 <link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'search/search.css' %}">
 {% endblock stylesheet %}
 
 {% block base_body %}
-    <form class="add_your_class" method="GET" action="" >
-        <input class="add_your_class" type="search" name="search">
-        <button class="add_your_class" type="submit"> Search </button>
+    <form id="searchbar" method="GET" action="" >
+        <input class="form-control" placeholder="Username..." type="search" name="search">
+        <button class="btn btn-info ml-2" type="submit"> Search </button>
     </form>
     {% for res in all_search_results %}
-        <div>
-            {{ res }}
+        <div class="username">
+            {{ res.username }}
         </div>
     {% endfor %}
 {% endblock base_body %}

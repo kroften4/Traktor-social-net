@@ -6,5 +6,4 @@ urlpatterns = [
     re_path(r'^get_image/$', get_image),
     path('', PostListView.as_view(), name='posts-home'),
     path('post/new', PostCreateView.as_view(), name='post-create'),
-    path('search/', SearchView.as_view(), name='search-users')
 ]

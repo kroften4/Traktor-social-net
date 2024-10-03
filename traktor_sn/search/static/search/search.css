@@ -6,8 +6,20 @@
     width: fit-content;
 }
 
-#searchbar {
-    max-width: 300px;
-    display: flex;
-    margin-bottom: 10px;
+#searchbar-page {
+    display: none;
+}
+
+#results-for {
+    display: block;
+}
+
+@media screen and (max-width: 500px) {
+    #searchbar-page {
+        display: flex;
+    }
+
+    #results-for {
+        display: none;
+    }
 }

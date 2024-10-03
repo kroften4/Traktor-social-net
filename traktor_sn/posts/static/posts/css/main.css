@@ -33,6 +33,7 @@
 }
 /* ~~~~ */
 
+/* ~~ Default button styles ~~ */
 button {
     color: #fff;
     background-color: #17a2b8;
@@ -45,11 +46,32 @@ button {
 button:hover {
     background-color: #138496;
 }
+/* ~~~~ */
+
+/* ~~ Search ~~ */
+#searchbar {
+    display: flex;
+}
+
+#search-link {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    #searchbar {
+        display: none;
+    }
+    #search-link {
+        display: block;
+    }
+}
+/* ~~~~ */
 
 #main-container {
     padding: 8px;
 }
 
+/* ~~ Header ~~ */
 header {
     padding-block: 15px;
     display: flex;
@@ -60,4 +82,6 @@ header {
 header > * {
     font-size: 17px;
     padding-inline: 2px;
+    align-self: center;
 }
+/* ~~~~ */

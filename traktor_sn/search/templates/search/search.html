@@ -6,11 +6,14 @@
 {% endblock stylesheet %}
 
 {% block base_body %}
-    <form id="searchbar" method="GET" action="" >
-        <input class="form-control" placeholder="Username..." type="search" name="search">
+    <form id="searchbar-page" method="GET" action="{% url 'search-users' %}" >
+        <input class="form-control" placeholder="Username..."
+               value="{% if search %}{{ search.query }}{% endif %}"
+               type="search" name="search">
         <button class="btn btn-info ml-2" type="submit"> Search </button>
     </form>
-    {% for res in all_search_results %}
+    <h4 id="results-for">Results for "{{ search.query }}":</h4>
+    {% for res in search.result %}
         <div class="username">
             {{ res.username }}
         </div>

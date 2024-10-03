@@ -9,10 +9,12 @@ from users.models import CustomUser
 class SearchView(ListView):
     model = CustomUser
     template_name = 'search/search.html'
-    context_object_name = 'all_search_results'
+    context_object_name = 'search'
 
     def get_queryset(self):
         query = self.request.GET.get('search')
+        if not query:
+            query = ""
         result = None
         if query:
             # SQL INJECTION
@@ -24,4 +26,4 @@ class SearchView(ListView):
                 f"OR username LIKE '%{query}%'"
             )
             result = filter(lambda x: not x.is_superuser, result)
-        return result
+        return {'query': query, 'result': result}

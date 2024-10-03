@@ -35,6 +35,8 @@ urlpatterns = [
         auth_views.LogoutView.as_view(template_name='users/logout.html'),
         name='logout'
     ),
+
+    path('staff/', include('staff.urls')),
     path('search/', SearchView.as_view(), name='search-users'),
     path('', include('posts.urls')),
     path('admin/', admin.site.urls),

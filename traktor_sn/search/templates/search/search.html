@@ -13,10 +13,13 @@
         <button class="btn btn-info ml-2" type="submit"> Search </button>
     </form>
     <h4 id="results-for">Results for "{{ search.query }}":</h4>
-    {% for res in search.result %}
-        <div class="username">
-            {{ res.username }}
-        </div>
-    {% endfor %}
+    {% if search.result %}
+        {% for res in search.result %}
+            <div class="username">
+                {{ res.username }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>There are no results! Try searching for something else</p>
+    {% endif %}
 {% endblock base_body %}
-

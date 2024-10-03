@@ -33,6 +33,19 @@
 }
 /* ~~~~ */
 
+button {
+    color: #fff;
+    background-color: #17a2b8;
+    border: 0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #138496;
+}
+
 #main-container {
     padding: 8px;
 }

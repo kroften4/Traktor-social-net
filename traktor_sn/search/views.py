@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from users.models import CustomUser
 
 
 # Create your views here.
 
 class SearchView(ListView):
-    model = User
+    model = CustomUser
     template_name = 'search/search.html'
     context_object_name = 'all_search_results'
 
@@ -15,9 +16,9 @@ class SearchView(ListView):
         result = None
         if query:
             # SQL INJECTION
-            result = User.objects.raw(
+            result = CustomUser.objects.raw(
                 f"SELECT * "
-                f"FROM auth_user "
+                f"FROM users_customuser "
                 f"WHERE username LIKE '%{query}' "
                 f"OR username LIKE '{query}%'"
                 f"OR username LIKE '%{query}%'"

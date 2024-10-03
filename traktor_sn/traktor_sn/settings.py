@@ -31,11 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'staff.apps.StaffConfig',
     'search.apps.SearchConfig',
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+
     'crispy_forms',
     'crispy_bootstrap4',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +135,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'posts-home'
 LOGIN_URL = 'login'
+
+AUTH_USER_MODEL = 'users.CustomUser'

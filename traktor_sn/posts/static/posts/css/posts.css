@@ -5,6 +5,16 @@
     align-items: center;
 }
 
+#new-post {
+    max-width: 600px;
+    width: 100%
+}
+
+#top-bar {
+    max-width: 600px;
+    width: 100%
+}
+
 .post {
     max-width: 600px;
     width:100%;
@@ -22,3 +32,8 @@
     overflow-wrap: break-word;
 }
 /* ~~~~ */
+
+/* is_mod set to false */
+.no-is_mod {
+    display: none;
+}

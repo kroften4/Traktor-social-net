@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'posts/css/posts.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div class="post">
+    <h3>{{ object.title }}</h3>
+    <span>
+        By <strong>{{ object.author }}</strong> on <strong>{{ object.date_posted|date:"H:i | N d, Y" }}</strong>
+    </span>
+    <p class="post-content">
+        {{ object.content }}
+    </p>
+</div>
+<form class="{% if user.is_authenticated and user.is_mod %}{% else %}no-is_mod{% endif %}"
+      method="GET" action="{% url 'post-delete' object.id %}">
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+
+{% endblock base_body %}

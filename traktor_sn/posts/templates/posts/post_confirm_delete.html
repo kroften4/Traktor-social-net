@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+{% endblock stylesheet %}
+
+{% block base_body %}
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Delete post</legend>
+            <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+        </fieldset>
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+        <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock base_body %}

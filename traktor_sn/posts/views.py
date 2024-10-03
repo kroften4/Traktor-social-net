@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from django.http import FileResponse
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.http import JsonResponse
+from django.views.generic import (
+    ListView,
+    CreateView,
+    DetailView,
+    DeleteView
+)
 from .models import Post
 
 
@@ -23,6 +29,18 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class PostDetailView(DetailView):
+    model = Post
+
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
+    model = Post
+    success_url = reverse_lazy('posts-home')
+
+    def test_func(self):
+        return self.request.user.is_authenticated and self.request.user.is_mod
 
 
 def get_image(request):

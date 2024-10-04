@@ -4,6 +4,5 @@ from .models import Post
 # Register your models here.
 
 admin.site.register(Post)
-
 # TODO: generate an actual flag later
-admin.site.site_header = 'Congrats! flag{asdfyao8wefga8734yr2ykr783rgk84384tg}'
+admin.site.index_title = "CONGRATS! Here's your flag{wehf0q34ohfq348ogfbq348ofb3g4ufgso}"

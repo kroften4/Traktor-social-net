@@ -22,13 +22,17 @@
     {% if object_list %}
         {% for post in object_list %}
             <div class="post">
-                <h3><a class="article-title text-dark" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
-                <span>
-                    By <strong>{{ post.author }}</strong> on <strong>{{ post.date_posted|date:"H:i | N d, Y" }}</strong>
-                </span>
-                <p class="post-content">
-                    {{ post.content }}
-                </p>
+                <form action="{% url 'post-detail' post.id %}">
+                    <button class="no-style" type="submit">
+                        <h3>{{ post.title }}</h3>
+                        <span>
+                            By <strong>{{ post.author }}</strong> on <strong>{{ post.date_posted|date:"H:i | N d, Y" }}</strong>
+                        </span>
+                        <p class="post-content">
+                            {{ post.content }}
+                        </p>
+                    </button>
+                </form>
             </div>
         {% endfor %}
     {% else %}

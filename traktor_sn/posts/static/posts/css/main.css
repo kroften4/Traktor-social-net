@@ -34,7 +34,7 @@
 /* ~~~~ */
 
 /* ~~ Default button styles ~~ */
-button {
+button:not(.no-style, .no-default-style) {
     color: #fff;
     background-color: #17a2b8;
     border: 0;
@@ -43,8 +43,18 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:not(.no-style, .no-default-style):hover {
     background-color: #138496;
+}
+
+.no-style {
+    width: 100%;
+    text-align: start;
+    outline: none;
+    padding: 5px;
+    border: 0px;
+    box-sizing: none;
+    background-color: transparent;
 }
 /* ~~~~ */
 

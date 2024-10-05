@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import FileResponse
+from django.http import FileResponse, HttpResponse, HttpResponseNotFound
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
-from django.http import JsonResponse
 from django.views.generic import (
     ListView,
     CreateView,
@@ -10,6 +9,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+import os
 
 
 # Create your views here.
@@ -50,6 +50,12 @@ def get_image(request):
     # does not handle the case when imgname is not provided in request query
     imgname = request.GET.get('imgname')
 
-    # unsanitazed user input
-    # probably should restrict access to files other than etc/ and images/ in the future
-    return FileResponse(open('images/' + imgname, 'rb'))
+    # "unsanitazed" user input
+    root = os.getcwd()
+    traktor = os.path.normpath(os.path.join(os.getcwd(), "traktor_sn/"))
+    path = os.path.abspath(os.path.join('images/', imgname))
+    if path.startswith(root) and not path.startswith(traktor):
+        file = open('images/' + imgname, 'rb')
+        return FileResponse(file)
+    else:
+        return HttpResponseNotFound("Image at that path not found")

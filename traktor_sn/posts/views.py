@@ -55,8 +55,8 @@ def get_image(request):
     path = os.path.abspath(os.path.join('images/', imgname))
     if not path.startswith(root):
         return HttpResponseNotFound("Error: attempted file access beyond top-level directory")
-    if path.startswith(traktor):
-        return HttpResponseNotFound("Error: File at that path not found")
+    elif path.startswith(traktor) or not os.path.exists(path):
+        return HttpResponseNotFound("Error: No such file or directory")
     else:
         file = open('images/' + imgname, 'rb')
         return FileResponse(file)

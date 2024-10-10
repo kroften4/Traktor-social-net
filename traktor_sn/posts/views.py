@@ -11,7 +11,6 @@ from django.views.generic import (
 from .models import Post
 import os
 
-
 # Create your views here.
 
 class PostListView(ListView):
@@ -54,8 +53,10 @@ def get_image(request):
     root = os.getcwd()
     traktor = os.path.normpath(os.path.join(os.getcwd(), "traktor_sn/"))
     path = os.path.abspath(os.path.join('images/', imgname))
-    if path.startswith(root) and not path.startswith(traktor):
+    if not path.startswith(root):
+        return HttpResponseNotFound("Error: attempted file access beyond top-level directory")
+    if path.startswith(traktor):
+        return HttpResponseNotFound("Error: File at that path not found")
+    else:
         file = open('images/' + imgname, 'rb')
         return FileResponse(file)
-    else:
-        return HttpResponseNotFound("Image at that path not found")

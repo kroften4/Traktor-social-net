@@ -22,7 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # DEPLOYMENT: Change the path to, for example, '/etc/traktor-config.json'
 # Do not put the config file inside the project dir
-# (see 'prod' branch on https://github.com/kroften4/Traktor-social-net/tree/prod for an example)
 CONFIG_PATH = BASE_DIR / "config-example.json"
 with open(CONFIG_PATH) as config_file:
     config = json.load(config_file)

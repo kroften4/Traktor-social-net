@@ -5,7 +5,6 @@ from traktor_sn import settings
 
 # DEPLOYMENT: Change the path to, for example, '/etc/traktor-config.json'
 # Do not put the config file inside the project dir
-# (see 'prod' branch on https://github.com/kroften4/Traktor-social-net/tree/prod for an example)
 PATH_TO_CONFIG = settings.BASE_DIR / "config-example.json"
 
 with open(PATH_TO_CONFIG) as config_file:

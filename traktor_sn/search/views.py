@@ -25,5 +25,5 @@ class SearchView(ListView):
                 f"OR username LIKE '{query}%'"
                 f"OR username LIKE '%{query}%'"
             )
-            result = list(filter(lambda x: not x.is_superuser, result))
+            result = list(sorted(filter(lambda x: not x.is_superuser, result), key=lambda x: x.username))
         return {'query': query, 'result': result}

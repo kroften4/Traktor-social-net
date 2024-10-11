@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,8 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2ta--p%gd9xn*pc^1ca$$lr98v5l-vwlc_emf^iui(3fx!my%r'
+# DEPLOYMENT: Change the path to, for example, '/etc/traktor-config.json'
+# Do not put the config file inside the project dir
+# (see 'prod' branch on https://github.com/kroften4/Traktor-social-net/tree/prod for an example)
+CONFIG_PATH = BASE_DIR / "config-example.json"
+with open(CONFIG_PATH) as config_file:
+    config = json.load(config_file)
+SECRET_KEY = config["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

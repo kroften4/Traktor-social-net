@@ -9,6 +9,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from pathlib import Path
 import os
 
 # Create your views here.
@@ -50,13 +51,13 @@ def get_image(request):
     imgname = request.GET.get('imgname')
 
     # "unsanitazed" user input
-    root = os.getcwd()
-    traktor = os.path.normpath(os.path.join(os.getcwd(), "traktor_sn/"))
-    path = os.path.abspath(os.path.join('images/', imgname))
+    root = os.path.abspath(Path(__file__).resolve().parents[2])
+    traktor = os.path.normpath(os.path.join(root, "traktor_sn/"))
+    path = os.path.abspath(os.path.join(root, 'images', imgname))
     if not path.startswith(root):
         return HttpResponseNotFound("Error: attempted file access beyond top-level directory")
     elif path.startswith(traktor) or not os.path.exists(path):
         return HttpResponseNotFound("Error: No such file or directory")
     else:
-        file = open('images/' + imgname, 'rb')
+        file = open(path, 'rb')
         return FileResponse(file)

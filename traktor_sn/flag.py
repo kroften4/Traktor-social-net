@@ -5,9 +5,8 @@ from traktor_sn import settings
 
 # DEPLOYMENT: Change the path to, for example, '/etc/traktor-config.json'
 # Do not put the config file inside the project dir
-PATH_TO_CONFIG = settings.BASE_DIR / "config-example.json"
 
-with open(PATH_TO_CONFIG) as config_file:
+with open(settings.CONFIG_PATH) as config_file:
     config = json.load(config_file)
 
 alphabet = string.ascii_letters + string.digits
@@ -17,7 +16,7 @@ length = 42
 def gen_flag():
     flag = ''.join(secrets.choice(alphabet) for _ in range(length))
     config["FLAG"] = flag
-    config_file = open(PATH_TO_CONFIG, "w")
+    config_file = open(settings.CONFIG_PATH, "w")
     json.dump(config, config_file, indent=4)
 
 
